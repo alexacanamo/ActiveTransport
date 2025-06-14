@@ -5,36 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ACTIVE TRANSPORT</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
 
   <style>
+    body, html {
+      font-family: 'Inter', sans-serif;
+    }
 
     .half-circle {
       width: 100%;
-      height: 150px;
-      background-color: #e8f2e5;
-      border-bottom-left-radius: 100% 100%;
-      border-bottom-right-radius: 100% 100%;
-      margin-top: -1px;
+      height: 480px;
+      background-color: #ffffff;
+      border-radius: 0 0 100% 100% / 0 0 290px 290px;
+      margin-top: -160px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     }
 
     .circle {
-      width: 600px;
-      height: 600px;
+      width: 620px;
+      height: 620px;
       border-radius: 50%;
       overflow: hidden;
-      margin: -140px auto 100px auto; 
+      margin: -320px auto 60px auto;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
       position: relative;
       z-index: 0;
     }
 
     .circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scale(1.2); 
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.2);
     }
 
+    .circle-section {
+      background:
+        linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.4)),
+        url('bg.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      z-index: -1;
+      padding: 10px 20px 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    .circle-section h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 300;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .circle-section .highlight {
+      color: #7fc241;
+      font-weight: bold;
+    }
 
     .content {
       padding: 40px 20px;
@@ -43,6 +78,7 @@
     }
 
     .content h2 {
+      font-family: 'Poppins', sans-serif;
       font-size: 2rem;
       margin-bottom: 15px;
     }
@@ -60,17 +96,15 @@
         margin: 100px auto 80px auto;
       }
     }
-
   </style>
-
 </head>
 
 <body>
 
   <!-- Navbar -->
   <nav>
-    <div class="logo">ACTIVE</div>
-    <div>
+    <div class="logo">SYNTAX</div>
+    <div class="nav-links">
       <a href="#">Home</a>
       <a href="#">About</a>
       <a href="#">Lesson</a>
@@ -80,16 +114,133 @@
 
   <!-- Header -->
   <div class="header">
-    <h1>ACTIVE TRANSPORT</h1>
+    <h1 style="font-family: 'Poppins', sans-serif; font-size: 5rem; font-weight: 900; letter-spacing: 2px; margin-bottom: 10px;     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: #111;">
+      ACTIVE <span style="color: #436c1d;">TRANSPORT</span>
+    </h1>
+    <p class="tagline" style="font-family: 'Inter', sans-serif; font-size: 2.3rem;">Learning Active Transport, the Smart Way</p>
   </div>
 
   <!-- Bottom Half Circle -->
   <div class="half-circle"></div>
 
   <!-- Circle Video -->
-<div class="circle">
-  <img src="SODIUM.gif" alt="Sodium animation" />
-</div>
+  <section class="circle-section">
+    <div class="circle">
+      <img src="SODIUM.gif" alt="Sodium animation" />
+    </div>
+
+    <div style="margin: 150px 0;">
+      <h1>
+        Welcome to <span class="highlight">SYNTAX</span> Website, <br>
+        our website is about <span class="highlight">Active Transport</span>.<br><br>
+        Learn how cells move substances using energy through protein pumps and bulk transport.
+        Explore mechanisms like the Sodium-Potassium Pump and endocytosis/exocytosis — all powered by ATP!
+      </h1>
+    </div>
+  </section>
+
+  <!-- Info Boxes -->
+  <section style="background: #fff; padding: 180px 60px 100px; font-family: 'Inter', sans-serif;">
+    <div style="text-align: center; margin-bottom: 80px;">
+      <h1 style="font-size: 48px; font-weight: 800; color: #0a1f13; margin: 0; font-family: 'Poppins', sans-serif;">
+        Understanding Active Transport
+      </h1>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1200px; margin: 0 auto;">
+      
+      <!-- Definition -->
+      <div style="flex: 1 1 300px; max-width: 360px; background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); text-align: left;">
+        <div style="font-size: 40px; margin-bottom: 20px;">📘</div>
+        <h2 style="font-family: 'Poppins', sans-serif;">Definition</h2>
+        <p>
+          Active transport moves molecules across cell membranes against their concentration gradient (low to high), using energy (ATP).
+        </p>
+        <button style="margin-top: 20px; background: #f3ffcc; color: #0a1f13; border: none; padding: 10px 22px; border-radius: 30px; font-weight: 600; cursor: pointer;">
+          Learn More
+        </button>
+      </div>
+
+      <!-- Sodium-Potassium Pump -->
+      <div style="flex: 1 1 300px; max-width: 360px; background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); text-align: left;">
+        <div style="font-size: 40px; margin-bottom: 20px;">🔁</div>
+        <h2 style="font-family: 'Poppins', sans-serif;">Sodium-Potassium Pump</h2>
+        <p>
+          The sodium-potassium pump is a protein in the cell membrane that uses energy (ATP) to move sodium ions out of the cell and potassium ions into the cell, helping maintain proper cell function.
+        </p>
+        <button style="margin-top: 20px; background: #f3ffcc; color: #0a1f13; border: none; padding: 10px 22px; border-radius: 30px; font-weight: 600; cursor: pointer;">
+          Learn More
+        </button>
+      </div>
+
+      <!-- Bulk Transport -->
+      <div style="flex: 1 1 300px; max-width: 360px; background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); text-align: left;">
+        <div style="font-size: 40px; margin-bottom: 20px;">📦</div>
+        <h2 style="font-family: 'Poppins', sans-serif;">Bulk Transport</h2>
+        <p>
+          Bulk transport is the movement of large molecules or particles into or out of the cell using energy, through processes like endocytosis and exocytosis.
+        </p>
+        <button style="margin-top: 20px; background: #f3ffcc; color: #0a1f13; border: none; padding: 10px 22px; border-radius: 30px; font-weight: 600; cursor: pointer;">
+          Learn More
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+<footer class="custom-footer">
+  <div class="footer-container">
+    <!-- Column 1 -->
+    <div class="footer-column">
+      <h3 class="footer-logo">SYNTAX</h3>
+      <p class="footer-description">
+        SYNTAX is your guide to mastering biology concepts, focusing on active transport and beyond — all in one platform.
+      </p>
+      <p class="footer-contact">📧 info@syntaxbio.com</p>
+    </div>
+
+    <!-- Column 2 -->
+    <div class="footer-column">
+      <h4 class="footer-heading">LINKS</h4>
+      <ul class="footer-list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Lesson</a></li>
+        <li><a href="#">Quiz</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3 -->
+    <div class="footer-column">
+      <h4 class="footer-heading">MADE BY</h4>
+      <ul class="footer-list">
+        <li><a href="#">ALEXA</a></li>
+        <li><a href="#">VINCENZO</a></li>
+        <li><a href="#">RAY</a></li>
+        <li><a href="#">RAJEEV</a></li>
+
+
+      </ul>
+    </div>
+
+    <!-- Column 4 -->
+    <div class="footer-column">
+      <h4 class="footer-heading">NEWSLETTER</h4>
+      <p class="footer-description">Stay updated with the latest learning tools and content.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your Email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 SYNTAX. All rights reserved.</p>
+  </div>
+</footer>
+
 
 </body>
 </html>
