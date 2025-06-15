@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Active Transport | SYNTAX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .header {
+      text-align: center;
+      padding: 100px 20px 20px;
+      background-color: #ffffff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 6rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #111;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      margin-bottom: 10px;
+      margin-top: 50px;
+
+    }
+
+    .header h1 span {
+      color: #436c1d;
+    }
+
+    .tagline {
+      font-size: 2.3rem;
+    }
+
+    .half-circle {
+      width: 100%;
+      height: 500px;
+      background-color: #fff;
+      border-radius: 0 0 100% 100% / 0 0 290px 290px;
+      margin-top: -160px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .circle-section {
+      background: none;
+      background-size: cover;
+      background-attachment: fixed;
+      padding: 10px 20px 300px;
+      color: white;
+      text-align: center;
+    }
+
+    .circle {
+      width: 620px;
+      height: 620px;
+      border-radius: 50%;
+      margin: -320px auto 60px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.2);
+    }
+
+    .circle-section h1 {
+      max-width: 800px;
+      margin: 150px auto 0;
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 300;
+      line-height: 1.6;
+      margin-top: 280px;
+
+    }
+
+    .highlight {
+      color: #7fc241;
+      font-weight: bold;
+    }
+
+    .what-is {
+      background-color: #f8f8f8;
+      padding: 300px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+      box-shadow: 0 -10px 30px -10px #b2ec97 inset;
+      margin-top: -2px; /* overlap to hide line */
+    }
+
+    .what-is-half-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      right: -50px; 
+      transform: translateY(-50%);
+      width: 90vw;
+      height: 100%;
+      min-width: 300px;
+      min-height: 200px;
+      max-width: 800px;
+      background: linear-gradient(90deg, #b2ec97 0%, #a2e48a 100%);
+      border-top-left-radius: 50vw 100%;
+      border-bottom-left-radius: 50vw 100%;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      box-shadow: none;
+      z-index: 1;
+      pointer-events: auto; /* allow pointer events if needed */
+      padding: 32px 48px;
+      opacity: 0;
+      transform: translateY(-50%) translateX(200px);
+      transition: opacity 2s cubic-bezier(0.4,0,0.2,1), transform 2s cubic-bezier(0.4,0,0.2,1);
+      animation: none;
+      border: none;
+    }
+
+    .what-is-half-circle.visible {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .what-is-half-circle .half-circle-desc {
+      color: #0a1802;
+      font-size: 1.5rem;
+      font-family: 'poppins', sans-serif;
+      font-weight: 500;
+      text-align: justify;
+      max-width: 550px;
+      line-height: 2;
+      background: rgba(255,255,255,0.7);
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(10, 17, 3, 0.08);
+      padding: 15px 20px;
+      margin-left: 40px;
+      z-index: 2;
+    }
+
+    .what-is .container {
+      position: relative;
+      z-index: 2;
+      text-align: left;
+    }
+
+    .what-is h2 {
+      position: absolute;
+      top: 5px;
+      left: 30px;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #333;
+      letter-spacing: 1px;
+      background: none;
+      z-index: 3;
+    }
+
+    .what-is-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .what-is img {
+      flex: 1;
+      max-width: 420px;
+      border: 6px solid #73da14;
+      border-radius: 24px;
+      box-shadow: 0 6px 32px rgba(67,108,29,0.15);
+      background: #fff;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Smooth transition between main section and what-is section */
+    .smooth-transition {
+      position: relative;
+      width: 100%;
+      height: 62px; /* slightly increased */
+      margin-top: -62px; /* match height for overlap */
+      z-index: 2;
+      border: none !important;
+      outline: none !important;
+    }
+
+    .smooth-transition svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .what-is-flex img {
+      margin-left: 10px;
+      max-width: 550px;
+      width: 100%;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">SYNTAX</div>
+    <div class="nav-links">
+      <a href="INDEX.html">Home</a>
+      <a href="#">About</a>
+      <a href="#">Lesson</a>
+      <a href="#">Quiz</a>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>ACTIVE <span>TRANSPORT</span></h1>
+    <p class="tagline" style="font-size: 2rem;">Learning Active Transport, the Smart Way</p>
+  </div>
+
+  <!-- Design Curve -->
+  <div class="half-circle"></div>
+
+ 
+
+  <!-- Main Section -->
+  <section class="circle-section">
+    <div class="circle">
+      <img src="lesson.gif" alt="Sodium animation">
+    </div>
+    <h1>
+      Welcome to <span class="highlight">SYNTAX</span> Website,<br>
+      our platform focuses on <span class="highlight">Active Transport</span>.<br><br>
+      Learn <span class="highlight">Active Transport</span> with us, where we make complex concepts simple and engaging.<br>
+    </h1>
+  </section>
+
+  <!-- Smooth SVG transition -->
+  <div class="smooth-transition">
+    <svg viewBox="0 0 1440 62" xmlns="http://www.w3.org/2000/svg"><path fill="#f8f8f8" d="M0,0 C480,62 960,0 1440,62 L1440,62 L0,62 Z"></path></svg>
+  </div>
+
+  <!-- what is  -->
+  <section class="what-is">
+    <div class="what-is-flex" style="display: flex; align-items: flex-start; gap: 32px; width: 100%;">
+      <img src="active-transport-gif_orig.gif" alt="Active Transport Diagram" />
+      <div style="flex: 1;">
+        <h2> What is <span class="highlight">Active Transport</span>? </h2>
+      </div>
+    </div>
+    <div class="what-is-half-circle">
+      <div class="half-circle-desc">
+        <span class="highlight">Active Transport</span> in biology refers to the movement of molecules or ions across a cell membrane from a region of lower concentration to a region of higher concentration—against the concentration gradient. This process requires energy, typically in the form of ATP (adenosine triphosphate).
+      </div>
+    </div>
+  </section>
+
+  
+ 
+  <script>
+  // Improved animation: Slide in half-circle on scroll (robust for all cases)
+  document.addEventListener('DOMContentLoaded', function() {
+    const halfCircle = document.querySelector('.what-is-half-circle');
+    function checkVisible() {
+      const rect = halfCircle.getBoundingClientRect();
+      const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+      // Check if at least 50px of the element is visible
+      if (rect.top < windowHeight - 50 && rect.bottom > 50) {
+        halfCircle.classList.add('visible');
+      } else {
+        halfCircle.classList.remove('visible');
+      }
+    }
+    window.addEventListener('scroll', checkVisible);
+    window.addEventListener('resize', checkVisible);
+    checkVisible(); // check on load
+  });
+  </script>
+</body>
+</html>
