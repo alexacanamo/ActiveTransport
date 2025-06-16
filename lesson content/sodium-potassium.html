@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Active Transport | SYNTAX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+
+  <style>
+
+    .header {
+      text-align: center;
+      padding: 100px 20px 20px;
+      background-color: #ffffff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 6rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #111;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      margin-bottom: 10px;
+      margin-top: 50px;
+
+    }
+
+    .header h1 span {
+      color: #436c1d;
+    }
+
+    .tagline-box {
+      font-size: 2rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #111;
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #f3ffcc;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    #switching-text {
+      display: inline-block;
+      color: #436c1d;
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+
+
+    .half-circle {
+      width: 100%;
+      height: 500px;
+      background-color: #fff;
+      border-radius: 0 0 100% 100% / 0 0 290px 290px;
+      margin-top: -160px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .circle-section {
+      background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.4)), url('bg.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      padding: 10px 20px 180px;
+      color: white;
+      text-align: center;
+    }
+
+    .circle {
+      width: 620px;
+      height: 620px;
+      border-radius: 50%;
+      margin: -320px auto 60px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.2);
+    }
+
+    .circle-section h1 {
+      max-width: 800px;
+      margin: 150px auto 0;
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 300;
+      line-height: 1.6;
+      margin-top: 80px;
+
+    }
+
+    .highlight {
+      color: #7fc241;
+      font-weight: bold;
+    }
+
+    .info-section {
+      padding: 180px 60px 180px;
+      background: #fff;
+    }
+
+    .info-section h1 {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 48px;
+      font-weight: 800;
+      color: #0a1f13;
+      margin-bottom: 80px;
+    }
+
+    .info-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      max-width: 360px;
+      flex: 1 1 300px;
+    }
+
+    .card h2 {
+      font-family: 'Poppins', sans-serif;
+      margin-top: 0;
+    }
+
+    .card p {
+      color: #444;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .card button {
+      margin-top: 20px;
+      background: #f3ffcc;
+      color: #0a1f13;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    body { background: #f8f8f8; }
+    .sodium-card {
+      background: #fff;
+      border-radius: 28px;
+      box-shadow: 0 6px 32px rgba(67,108,29,0.10);
+      padding: 48px 36px 40px 36px;
+      max-width: 600px;
+      margin: 80px auto 40px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 4px solid #7fc24122;
+    }
+    .sodium-img-holder {
+      width: 230px;
+      height: 230px;
+      background: #eafbe0;
+      border-radius: 16px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px rgba(67,108,29,0.07);
+      border: 2px solid #a8d12a44;
+      overflow: hidden;
+    }
+    .sodium-img-holder img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .sodium-card h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      color: #436c1d;
+      margin-bottom: 18px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .sodium-card .definition {
+      font-size: 1.15rem;
+      color: #222;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .sodium-card .how-it-works {
+      font-size: 1.13rem;
+      color: #222;
+      line-height: 1.7;
+      background: #f8f8f8;
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-top: 8px;
+      box-shadow: 0 2px 8px rgba(67,108,29,0.04);
+      text-align: left;
+    }
+
+    .sodium-fullscreen {
+      min-height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .sodium-img-row {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      padding: 60px 0 40px 0;
+    }
+
+    .sodium-info-row {
+      width: 100vw;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 48px;
+      padding: 40px 0 60px 0;
+      background: #f8f8f8;
+    }
+
+    .sodium-col {
+      flex: 1 1 400px;
+      max-width: 500px;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 6px 32px rgba(67,108,29,0.10);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      border: 4px solid #7fc24122;
+      min-width: 280px;
+    }
+
+    .sodium-col h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6rem;
+      color: #436c1d;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .sodium-col .definition,
+    .sodium-col .how-it-works {
+      font-size: 1.13rem;
+      color: #222;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">SYNTAX</div>
+    <div class="nav-links">
+      <a href="../INDEX.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../Lesson.html">Lesson</a>
+      <a href="#">Quiz</a>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Sodium-Potassium <span>Pump</span></h1>
+<div class="tagline-box">
+  <span id="switching-text">Learning Active Transport, the Smart Way</span>
+</div>
+  </div>
+
+  <!-- Design Curve -->
+  <div class="half-circle"></div>
+
+  <!-- Main Section -->
+  <section class="circle-section">
+    <div class="circle">
+      <img src="../SODIUM.gif" alt="Sodium animation">
+    </div>
+    <h1>
+      Welcome to <span class="highlight">SYNTAX</span> Website,<br>
+      our platform focuses on <span class="highlight">Active Transport</span>.<br><br>
+      Learn how cells move substances using energy — through protein pumps and bulk transport mechanisms like the Sodium-Potassium Pump and endocytosis/exocytosis.
+    </h1>
+  </section>
+
+  <!-- Smooth SVG transition between main section and sodium fullscreen -->
+  <div class="smooth-transition" style="position:relative;width:100%;height:62px;margin-top:-70px;z-index:2;border:none;outline:none;overflow:hidden;background:transparent;">
+    <svg viewBox="0 0 1440 62" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:100%;background:transparent;position:relative;top:8px;">
+      <path fill="#f8f8f8" d="M0,30 Q360,62 720,30 T1440,30 L1440,62 L0,62 Z" stroke="none"></path>
+    </svg>
+  </div>
+
+  <div class="sodium-fullscreen" style="min-height:100vh;width:100vw;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0;border: none;">
+    <div class="sodium-img-row" style="width:100vw;display:flex;justify-content:center;align-items:center;background:#fff;padding:60px 0 40px 0;">
+      <img src='SPP.jpg' alt='Sodium-Potassium Pump' style="display:block;max-width:700px;max-height:700px;width:auto;height:auto;border-radius:40px;border:10px solid #7fc241;box-shadow:0 12px 48px rgba(67,108,29,0.15);">
+    </div>
+    <div class="sodium-info-row" style="width:100vw;display:flex;flex-direction:row;justify-content:center;align-items:stretch;gap:48px;padding:40px 0 60px 0;background:#f8f8f8;">
+      <div class="sodium-col" style="flex:1 1 400px;max-width:500px;background:#fff;border-radius:24px;box-shadow:0 6px 32px rgba(67,108,29,0.10);padding:36px 32px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;border:4px solid #7fc24122;min-width:280px;">
+        <h2 style="font-family:'Poppins',sans-serif;font-size:1.6rem;color:#436c1d;margin-bottom:18px;font-weight:700;">Definition</h2>
+        <div class="definition" style="font-size:1.13rem;color:#222;line-height:1.7;margin-bottom:0;">
+          The sodium-potassium pump is a membrane protein that uses energy from ATP to move sodium ions out of the cell and potassium ions into the cell, both against their concentration gradients. This process is essential for maintaining the cell's electrochemical balance and is vital for nerve impulse transmission and muscle contraction.
+        </div>
+      </div>
+      <div class="sodium-col" style="flex:1 1 400px;max-width:500px;background:#fff;border-radius:24px;box-shadow:0 6px 32px rgba(67,108,29,0.10);padding:36px 32px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;border:4px solid #7fc24122;min-width:280px;">
+        <h2 style="font-family:'Poppins',sans-serif;font-size:1.6rem;color:#436c1d;margin-bottom:18px;font-weight:700;">How it Works</h2>
+        <div class="how-it-works" style="font-size:1.13rem;color:#222;line-height:1.7;margin-bottom:0;">
+          The pump binds three sodium ions inside the cell and, using energy from ATP, changes shape to release them outside. It then binds two potassium ions from outside and transports them into the cell. This cycle repeats, maintaining high potassium and low sodium concentrations inside the cell, which is crucial for many cellular functions.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grid Card Section -->
+  <div style="background: #a5e260; padding: 2.5rem 0; border-radius: 0; margin-top: 0; transition: margin-top 0.5s ease;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 900px; margin: 0 auto;">
+      <!-- Card 1: Go Back to Active Transport Definition -->
+      <div style="background: #f7faf7; border-radius: 20px; box-shadow: 0 2px 12px #0001; padding: 2rem; text-align: center;">
+        <h2 style="color: #4a7c2c; font-weight: bold;">Go Back</h2>
+           <p>Return to the definition of <span style="color: #7bb661; font-weight: bold;">Active Transport</span>.</p>
+        <button onclick="window.location.href='../Lesson.html'" style="display: inline-block; margin-top: 1rem; background: #4a7c2c; color: #fff; padding: 0.75rem 2rem; border-radius: 8px; border: none; text-decoration: none; font-weight: bold; cursor: pointer;">
+          Back to Definition
+        </button>
+      </div>
+      <!-- Card 2: Go to Bulk Transport -->
+      <div style="background: #f7faf7; border-radius: 20px; box-shadow: 0 2px 12px #0001; padding: 2rem; text-align: center;">
+        <h2 style="color: #4a7c2c; font-weight: bold;">Bulk Transport</h2>
+        <p>Learn more about <span style="color: #7bb661; font-weight: bold;">Bulk Transport</span> mechanisms.</p>
+        <button onclick="window.location.href='bulk-transport.html'" style="display: inline-block; margin-top: 1rem; background: #4a7c2c; color: #fff; padding: 0.75rem 2rem; border-radius: 8px; border: none; text-decoration: none; font-weight: bold; cursor: pointer;">
+          Go to Bulk Transport
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="custom-footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3 class="footer-logo">SYNTAX</h3>
+        <p class="footer-description">
+          SYNTAX helps students master biology topics like active transport using engaging content.
+        </p>
+        <p class="footer-contact">📧 info@syntaxbio.com</p>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">LINKS</h4>
+        <ul class="footer-list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Lesson</a></li>
+          <li><a href="#">Quiz</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">MADE BY</h4>
+        <ul class="footer-list">
+          <li><a href="#">ALEXA</a></li>
+          <li><a href="#">VINCENZO</a></li>
+          <li><a href="#">RAY</a></li>
+          <li><a href="#">RAJEEV</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">NEWSLETTER</h4>
+        <p class="footer-description">Stay updated with the latest learning tools and content.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your Email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 SYNTAX. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
