@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
+
     .header {
       text-align: center;
       padding: 100px 20px 20px;
@@ -32,9 +33,32 @@
       color: #436c1d;
     }
 
-    .tagline {
-      font-size: 2.3rem;
+    .tagline-box {
+      font-size: 2rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #111;
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #f3ffcc;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+      animation: fadeIn 1s ease-in-out;
     }
+
+    #switching-text {
+      display: inline-block;
+      color: #436c1d;
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+
 
     .half-circle {
       width: 100%;
@@ -49,7 +73,7 @@
       background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.4)), url('bg.jpg') no-repeat center center;
       background-size: cover;
       background-attachment: fixed;
-      padding: 10px 20px 300px;
+      padding: 10px 20px 180px;
       color: white;
       text-align: center;
     }
@@ -77,7 +101,7 @@
       font-size: 32px;
       font-weight: 300;
       line-height: 1.6;
-      margin-top: 280px;
+      margin-top: 80px;
 
     }
 
@@ -140,7 +164,6 @@
       cursor: pointer;
     }
 
-
   </style>
 </head>
 
@@ -150,8 +173,8 @@
   <nav>
     <div class="logo">SYNTAX</div>
     <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">About</a>
+      <a href="INDEX.html">Home</a>
+      <a href="about.html">About</a>
       <a href="Lesson.html">Lesson</a>
       <a href="#">Quiz</a>
     </div>
@@ -160,7 +183,9 @@
   <!-- Header -->
   <div class="header">
     <h1>ACTIVE <span>TRANSPORT</span></h1>
-    <p class="tagline" style="font-size: 2rem;">Learning Active Transport, the Smart Way</p>
+<div class="tagline-box">
+  <span id="switching-text">Learning Active Transport, the Smart Way</span>
+</div>
   </div>
 
   <!-- Design Curve -->
@@ -219,10 +244,10 @@
       <div class="footer-column">
         <h4 class="footer-heading">LINKS</h4>
         <ul class="footer-list">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Lesson</a></li>
-          <li><a href="#">Quiz</a></li>
-          <li><a href="#">About</a></li>
+          <li><a href="INDEX.html">Home</a></li>
+          <li><a href="Lesson.html">Lesson</a></li>
+          <li><a href="Quiz.html">Quiz</a></li>
+          <li><a href="about.html">About</a></li>
         </ul>
       </div>
 
@@ -249,6 +274,29 @@
       <p>&copy; 2025 SYNTAX. All rights reserved.</p>
     </div>
   </footer>
+
+<script>
+  const phrases = [
+    "Powered by ATP: Sodium-Potassium Pump",
+    "Endocytosis: In with the Large Molecules",
+    "Exocytosis: Moving Materials Out",
+    "Low to High? That’s Active Transport!"
+  ];
+
+  const textElement = document.getElementById("switching-text");
+  let index = 0;
+
+  setInterval(() => {
+    textElement.style.opacity = 0;
+    textElement.style.transform = "translateY(10px)";
+    setTimeout(() => {
+      textElement.innerText = phrases[index];
+      textElement.style.opacity = 1;
+      textElement.style.transform = "translateY(0)";
+      index = (index + 1) % phrases.length;
+    }, 500);
+  }, 3500);
+</script>
 
 </body>
 </html>
