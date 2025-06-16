@@ -93,8 +93,7 @@
       position: relative;
       overflow: hidden;
       min-height: 320px;
-      box-shadow: 0 -10px 30px -10px #b2ec97 inset;
-      margin-top: -2px; /* overlap to hide line */
+      margin-top: -3px; /* overlap to hide line */
     }
 
     .what-is-half-circle {
@@ -137,7 +136,7 @@
       font-family: 'poppins', sans-serif;
       font-weight: 500;
       text-align: justify;
-      max-width: 550px;
+      max-width: 500px;
       line-height: 2;
       background: rgba(255,255,255,0.7);
       border-radius: 15px;
@@ -155,7 +154,7 @@
 
     .what-is h2 {
       position: absolute;
-      top: 5px;
+      top: 175px;
       left: 30px;
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -205,9 +204,172 @@
     }
 
     .what-is-flex img {
-      margin-left: 10px;
-      max-width: 550px;
+      margin-left: 0px;
+      max-width: 500px;
       width: 100%;
+    }
+
+    /* How it Works Section */
+    .how-it-works-section {
+      position: relative;
+      width: 100vw;
+      min-height: 800px;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8f8f8;
+      overflow: hidden;
+    }
+    .how-it-works-section .how-circle-bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 60vw;
+      min-width: 350px;
+      max-width: 700px;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+    }
+    .how-it-works-section .how-circle-bg-inner {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(-90deg,#acdf93 0%, #a1e480 25%, #87e25a 50%, #3fa01b 100%);
+      border-top-right-radius: 100vw;
+      border-bottom-right-radius: 100vw;
+      opacity: 0;
+      transform: translateX(-200px);
+      transition: opacity 3s cubic-bezier(0.4,0,0.2,1), transform 3s cubic-bezier(0.4,0,0.2,1);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+    }
+    .how-it-works-section .how-circle-bg-inner.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .how-it-works-section h1 {
+      position: absolute;
+      top: 100px;
+      right: 150px;
+      z-index: 2;
+      font-family: 'Poppins', sans-serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: #111;
+      margin: 0;
+    }
+
+    .how-it-works-section .gif-container {
+      position: absolute;
+      max-width: 200px;
+      z-index: 2;
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .how-it-works-section img[alt="Active Transport Diagram"] {
+      max-width: 450px;
+      margin-right: 100px;
+      border: 6px solid #73da14;
+      border-radius: 24px;
+      box-shadow: 0 6px 32px rgba(67,108,29,0.15);
+    }
+
+    .how-it-works-section .half-circle-desc {
+      color: #0a1802;
+      font-size: 1.7rem;
+      font-family: 'poppins', sans-serif;
+      font-weight: 500;
+      text-align: justify;
+      max-width: 500px;
+      line-height: 2;
+      background: rgba(255,255,255,0.7);
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(10, 17, 3, 0.08);
+      padding: 15px 40px;
+      margin-left: 40px;  
+      z-index: 2;
+      position: relative;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transform: translateX(-200px);
+      transition: opacity 3s cubic-bezier(0.4,0,0.2,1), transform 3s cubic-bezier(0.4,0,0.2,1);
+      /* Remove absolute positioning for smooth movement */
+    }
+    .how-it-works-section .half-circle-desc.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* New styles for Types of Active Transport section */
+    .active-transport-types {
+      background: #f8f8f8;
+      padding: 100px 0 80px 0;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .types-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.7rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 48px;
+    }
+
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 48px;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+
+    .type-card {
+      background: #fff;
+      border-radius: 28px;
+      box-shadow: 0 6px 32px rgba(67,108,29,0.10);
+      padding: 36px 28px 32px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 4px solid #7fc24122;
+    }
+
+    .type-img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      margin-bottom: 24px;
+      border-radius: 16px;
+      background: #eafbe0;
+      box-shadow: 0 2px 12px rgba(67,108,29,0.07);
+      border: 2px solid #a8d12a44;
+    }
+
+    .type-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      color: #436c1d;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .type-card p {
+      font-size: 1.1rem;
+      color: #222;
+      line-height: 1.7;
     }
 
   </style>
@@ -251,12 +413,15 @@
 
   <!-- Smooth SVG transition -->
   <div class="smooth-transition">
-    <svg viewBox="0 0 1440 62" xmlns="http://www.w3.org/2000/svg"><path fill="#f8f8f8" d="M0,0 C480,62 960,0 1440,62 L1440,62 L0,62 Z"></path></svg>
+    <!-- New wavy SVG for a unique smooth transition -->
+    <svg viewBox="0 0 1440 62" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#f8f8f8" d="M0,30 Q360,62 720,30 T1440,30 L1440,62 L0,62 Z"></path>
+    </svg>
   </div>
 
   <!-- what is  -->
   <section class="what-is">
-    <div class="what-is-flex" style="display: flex; align-items: flex-start; gap: 32px; width: 100%;">
+    <div class="what-is-flex" style="display: flex; align-items: fleIx-start; gap: 32px; width: 100%;">
       <img src="active-transport-gif_orig.gif" alt="Active Transport Diagram" />
       <div style="flex: 1;">
         <h2> What is <span class="highlight">Active Transport</span>? </h2>
@@ -264,7 +429,46 @@
     </div>
     <div class="what-is-half-circle">
       <div class="half-circle-desc">
-        <span class="highlight">Active Transport</span> in biology refers to the movement of molecules or ions across a cell membrane from a region of lower concentration to a region of higher concentration—against the concentration gradient. This process requires energy, typically in the form of ATP (adenosine triphosphate).
+        <span class="highlight">Active Transport</span> in biology refers to the movement of molecules or ions across a cell membrane from a region of lower concentration to a region of higher concentration or against the concentration gradient. This process requires energy, typically in the form of ATP (adenosine triphosphate).
+      </div>
+    </div>
+  </section>
+
+  <!-- How it Works Section -->
+  <section class="how-it-works-section">
+    <div style="flex:1;"></div>
+    <img src="active-transport-half.gif" alt="Active Transport Diagram" />
+    <div class="how-circle-bg">
+      <div class="half-circle-desc">
+        <span class="highlight">Active Transport</span> moves substances across the cell membrane against their concentration gradient (from low to high concentration), which requires energy.
+      </div>
+      <div class="how-circle-bg-inner"></div>
+    </div>
+    <h1><span class="highlight">How</span> it Works</h1>
+  </section>
+
+  <!-- Types of Active Transport Section -->
+  <section class="active-transport-types" style="background: #f8f8f8; padding: 100px 0 80px 0; text-align: center; position: relative; z-index: 2;">
+    <h2 class="types-title" style="font-family: 'Poppins', sans-serif; font-size: 2.7rem; font-weight: 700; color: #333; margin-bottom: 48px;">
+      <span class="highlight">Types</span> of Active Transport
+    </h2>
+    <div class="types-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px; max-width: 1100px; margin: 0 auto; align-items: stretch;">
+      <div class="type-card" style="background: #fff; border-radius: 28px; box-shadow: 0 6px 32px rgba(67,108,29,0.10); padding: 36px 28px 32px 28px; display: flex; flex-direction: column; align-items: center; transition: transform 0.2s, box-shadow 0.2s; border: 4px solid #7fc24122;">
+        <img src="SODIUM.gif" alt="Sodium-Potassium Pump" class="type-img" style="width: 180px; height: 180px; object-fit: contain; margin-bottom: 24px; border-radius: 16px; background: #eafbe0; box-shadow: 0 2px 12px rgba(67,108,29,0.07); border: 2px solid #a8d12a44;" />
+        <h3 style="font-family: 'Poppins', sans-serif; font-size: 1.5rem; color: #436c1d; margin-bottom: 12px; font-weight: 700;">Sodium-Potassium Pump</h3>
+        <p style="font-size: 1.1rem; color: #222; line-height: 1.7;">
+          The <span class="highlight">Sodium-Potassium Pump</span> is a protein in cell membranes that uses ATP to move sodium ions out and potassium ions into the cell, maintaining essential gradients for nerve impulses and muscle contraction.
+        </p>
+      </div>
+      <div class="type-card" style="background: #fff; border-radius: 28px; box-shadow: 0 6px 32px rgba(67,108,29,0.10); padding: 36px 28px 32px 28px; display: flex; flex-direction: column; align-items: center; transition: transform 0.2s, box-shadow 0.2s; border: 4px solid #7fc24122;">
+        <div style="display: flex; flex-direction: row; gap: 16px; justify-content: center; align-items: center; margin-bottom: 24px;">
+          <img src="endo.png" alt="Bulk Transport Endocytosis" class="type-img" style="width: 180px; height: 180px; object-fit: contain; border-radius: 16px; background: #fff; box-shadow: 0 2px 12px rgba(67,108,29,0.07); border: 2px solid #a8d12a44; margin-bottom: 0;" />
+          <img src="exo.png" alt="Bulk Transport Exocytosis" class="type-img" style="width: 180px; height: 180px; object-fit: contain; border-radius: 16px; background: #fff; box-shadow: 0 2px 12px rgba(67,108,29,0.07); border: 2px solid #a8d12a44; margin-bottom: 0;" />
+        </div>
+        <h3 style="font-family: 'Poppins', sans-serif; font-size: 1.5rem; color: #436c1d; margin-bottom: 12px; font-weight: 700;">Bulk Transport</h3>
+        <p style="font-size: 1.1rem; color: #222; line-height: 1.7;">
+          <span class="highlight">Bulk Transport</span> moves large particles or fluids via vesicles. <b>Endocytosis</b> brings substances into the cell, while <b>exocytosis</b> expels them. Both require energy and are vital for cell function.
+        </p>
       </div>
     </div>
   </section>
@@ -288,7 +492,71 @@
     window.addEventListener('scroll', checkVisible);
     window.addEventListener('resize', checkVisible);
     checkVisible(); // check on load
+
+    // Animation for how-it-works half circle
+    const howCircle = document.querySelector('.how-circle-bg-inner');
+    const howDesc = document.querySelector('.how-circle-bg .half-circle-desc');
+    function checkHowVisible() {
+      const rect = howCircle.getBoundingClientRect();
+      const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+      if (rect.top < windowHeight - 50 && rect.bottom > 50) {
+        howCircle.classList.add('visible');
+        if (howDesc) howDesc.classList.add('visible');
+      } else {
+        howCircle.classList.remove('visible');
+        if (howDesc) howDesc.classList.remove('visible');
+      }
+    }
+    window.addEventListener('scroll', checkHowVisible);
+    window.addEventListener('resize', checkHowVisible);
+    checkHowVisible();
   });
   </script>
+  
+  <!-- Footer -->
+  <footer class="custom-footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3 class="footer-logo">SYNTAX</h3>
+        <p class="footer-description">
+          SYNTAX helps students master biology topics like active transport using engaging content.
+        </p>
+        <p class="footer-contact">📧 info@syntaxbio.com</p>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">LINKS</h4>
+        <ul class="footer-list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Lesson</a></li>
+          <li><a href="#">Quiz</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">MADE BY</h4>
+        <ul class="footer-list">
+          <li><a href="#">ALEXA</a></li>
+          <li><a href="#">VINCENZO</a></li>
+          <li><a href="#">RAY</a></li>
+          <li><a href="#">RAJEEV</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">NEWSLETTER</h4>
+        <p class="footer-description">Stay updated with the latest learning tools and content.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your Email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 SYNTAX. All rights reserved.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
