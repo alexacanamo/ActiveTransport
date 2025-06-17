@@ -5,40 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Quiz | SYNTAX</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css" /> <!-- Use your existing global stylesheet -->
   <style>
     .header {
       text-align: center;
-      padding: 100px 20px 20px;
-      background-color: #ffffff;
+      padding: 120px 20px 40px;
+      color: #fff;
     }
     .header h1 {
       font-family: 'Poppins', sans-serif;
       font-size: 5rem;
       font-weight: 900;
-      color: #111;
     }
     .header h1 span {
-      color: #436c1d;
+      color: #7fc241;
     }
 
     .quiz-container {
       max-width: 900px;
-      margin: 60px auto;
-      background: #ffffffcc;
+      margin: 0 auto 100px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
       padding: 40px;
       border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-      font-family: 'Inter', sans-serif;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      color: #fff;
+    }
+
+    .progress-container {
+      background: #eee;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 20px;
+      margin-bottom: 30px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(to right, #7fc241, #3fa01b);
+      transition: width 0.3s ease;
     }
 
     .question {
       margin-bottom: 30px;
+      animation: fadeInUp 0.5s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
 
     .question h3 {
       font-weight: 600;
-      color: #333;
+      color: #fff;
     }
 
     .question label {
@@ -46,6 +68,15 @@
       margin: 8px 0;
       cursor: pointer;
       font-size: 1.1rem;
+      padding: 6px 12px;
+      border-radius: 10px;
+      transition: background 0.2s ease;
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+
+    .question label:hover {
+      background-color: rgba(127, 194, 65, 0.2);
     }
 
     .question input[type="radio"] {
@@ -62,214 +93,145 @@
       color: white;
       cursor: pointer;
       transition: background 0.3s ease;
+      display: block;
+      margin: 20px auto 0;
     }
 
     .result {
       margin-top: 30px;
       font-size: 1.3rem;
       font-weight: bold;
-      color: #436c1d;
+      color: #fff;
+      text-align: center;
+    }
+
+    .answer-key {
+      margin-top: 40px;
+      font-size: 1.1rem;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .answer-key ul {
+      padding-left: 20px;
+    }
+
+    .answer-key li {
+      margin-bottom: 10px;
+    }
+
+    .return-btn {
+      display: none;
+      margin: 40px auto 0;
+      text-align: center;
+      font-size: 1rem;
+      padding: 10px 20px;
+      border-radius: 30px;
+      background: #ffffffaa;
+      color: #0a1f13;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .return-btn:hover {
+      background: #fff;
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <div class="logo">SYNTAX</div>
-    <div class="nav-links">
-      <a href="INDEX.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="Lesson.html">Lesson</a>
-      <a href="Quiz.html">Quiz</a>
-    </div>
-  </nav>
-
-  <div class="header">
-    <h1>ACTIVE <span>QUIZ</span></h1>
-    <p style="font-size: 1.3rem; margin-top: 10px;">Test your knowledge on Active Transport!</p>
+<nav>
+  <div class="logo">SYNTAX</div>
+  <div class="nav-links">
+    <a href="INDEX.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="Lesson.html">Lesson</a>
+    <a href="Quiz.html">Quiz</a>
   </div>
+</nav>
 
-  <div class="quiz-container" id="quiz-form">
-    <!-- Questions (Repeat format for each) -->
-    <div class="question">
-      <h3>1. What is the main energy source for active transport?</h3>
-      <label><input type="radio" name="q1" value="a"> Glucose</label>
-      <label><input type="radio" name="q1" value="b"> ATP</label>
-      <label><input type="radio" name="q1" value="c"> Oxygen</label>
-      <label><input type="radio" name="q1" value="d"> Water</label>
-    </div>
+<div class="header">
+  <h1>ACTIVE <span>QUIZ</span></h1>
+  <p style="font-size: 1.3rem; margin-top: 10px;">Test your knowledge on Active Transport!</p>
+</div>
 
-    <div class="question">
-      <h3>2. What direction does active transport move molecules?</h3>
-      <label><input type="radio" name="q2" value="a"> From high to low concentration</label>
-      <label><input type="radio" name="q2" value="b"> From low to high concentration</label>
-      <label><input type="radio" name="q2" value="c"> Through osmosis</label>
-      <label><input type="radio" name="q2" value="d"> Random directions</label>
-    </div>
+<div class="quiz-container" id="quiz-container">
+  <div class="progress-container"><div class="progress-bar" id="progress-bar"></div></div>
+  <div id="quiz-question" class="question"></div>
+  <button class="submit-btn" id="next-btn" onclick="nextQuestion()">Next</button>
+  <div class="result" id="result"></div>
+  <a href="INDEX.html" class="return-btn" id="return-btn">⟵ Return to Home</a>
+</div>
 
-    <div class="question">
-      <h3>3. Which structure is responsible for pumping ions in active transport?</h3>
-      <label><input type="radio" name="q3" value="a"> DNA</label>
-      <label><input type="radio" name="q3" value="b"> Ribosome</label>
-      <label><input type="radio" name="q3" value="c"> Protein pump</label>
-      <label><input type="radio" name="q3" value="d"> Vesicle</label>
-    </div>
+<script>
+const questions = [
+  { q: "What is the main energy source for active transport?", options: ["Glucose", "ATP", "Oxygen", "Water"], answer: "ATP" },
+  { q: "What direction does active transport move molecules?", options: ["From high to low concentration", "From low to high concentration", "Through osmosis", "Random directions"], answer: "From low to high concentration" },
+  { q: "Which structure is responsible for pumping ions in active transport?", options: ["DNA", "Ribosome", "Protein pump", "Vesicle"], answer: "Protein pump" },
+  { q: "The sodium-potassium pump moves how many sodium ions out?", options: ["2", "3", "1", "4"], answer: "3" },
+  { q: "Bulk transport includes which of the following?", options: ["Endocytosis and Exocytosis", "Osmosis and Diffusion", "Facilitated diffusion", "Photosynthesis"], answer: "Endocytosis and Exocytosis" },
+  { q: "What is endocytosis?", options: ["Releasing substances out of the cell", "Engulfing substances into the cell", "Pumping ions across membranes", "Breaking down ATP"], answer: "Engulfing substances into the cell" },
+  { q: "Which of the following is *not* active transport?", options: ["Exocytosis", "Diffusion", "Sodium-Potassium Pump", "Endocytosis"], answer: "Diffusion" },
+  { q: "What molecule provides the energy for protein pumps?", options: ["DNA", "Glucose", "ATP", "RNA"], answer: "ATP" },
+  { q: "Which organelle produces ATP for active transport?", options: ["Nucleus", "Mitochondria", "Ribosome", "Vacuole"], answer: "Mitochondria" },
+  { q: "What happens during exocytosis?", options: ["Cell engulfs substances", "Cell bursts", "Cell releases substances", "Cell stores ATP"], answer: "Cell releases substances" }
+];
 
-    <div class="question">
-      <h3>4. The sodium-potassium pump moves how many sodium ions out?</h3>
-      <label><input type="radio" name="q4" value="a"> 2</label>
-      <label><input type="radio" name="q4" value="b"> 3</label>
-      <label><input type="radio" name="q4" value="c"> 1</label>
-      <label><input type="radio" name="q4" value="d"> 4</label>
-    </div>
+let currentQuestion = 0;
+let score = 0;
 
-    <div class="question">
-      <h3>5. Bulk transport includes which of the following?</h3>
-      <label><input type="radio" name="q5" value="a"> Endocytosis and Exocytosis</label>
-      <label><input type="radio" name="q5" value="b"> Osmosis and Diffusion</label>
-      <label><input type="radio" name="q5" value="c"> Facilitated diffusion</label>
-      <label><input type="radio" name="q5" value="d"> Photosynthesis</label>
-    </div>
+function loadQuestion(index) {
+  const q = questions[index];
+  const container = document.getElementById("quiz-question");
+  container.innerHTML = `<h3>${index + 1}. ${q.q}</h3>` +
+    q.options.map(opt => `<label><input type="radio" name="q" value="${opt}"> ${opt}</label>`).join("");
+  updateProgress(index);
+}
 
-    <div class="question">
-      <h3>6. What is endocytosis?</h3>
-      <label><input type="radio" name="q6" value="a"> Releasing substances out of the cell</label>
-      <label><input type="radio" name="q6" value="b"> Engulfing substances into the cell</label>
-      <label><input type="radio" name="q6" value="c"> Pumping ions across membranes</label>
-      <label><input type="radio" name="q6" value="d"> Breaking down ATP</label>
-    </div>
+function updateProgress(current) {
+  const progress = (current / questions.length) * 100;
+  document.getElementById("progress-bar").style.width = progress + "%";
+}
 
-    <div class="question">
-      <h3>7. Which of the following is *not* active transport?</h3>
-      <label><input type="radio" name="q7" value="a"> Exocytosis</label>
-      <label><input type="radio" name="q7" value="b"> Diffusion</label>
-      <label><input type="radio" name="q7" value="c"> Sodium-Potassium Pump</label>
-      <label><input type="radio" name="q7" value="d"> Endocytosis</label>
-    </div>
-
-    <div class="question">
-      <h3>8. What molecule provides the energy for protein pumps?</h3>
-      <label><input type="radio" name="q8" value="a"> DNA</label>
-      <label><input type="radio" name="q8" value="b"> Glucose</label>
-      <label><input type="radio" name="q8" value="c"> ATP</label>
-      <label><input type="radio" name="q8" value="d"> RNA</label>
-    </div>
-
-    <div class="question">
-      <h3>9. Which organelle produces ATP for active transport?</h3>
-      <label><input type="radio" name="q9" value="a"> Nucleus</label>
-      <label><input type="radio" name="q9" value="b"> Mitochondria</label>
-      <label><input type="radio" name="q9" value="c"> Ribosome</label>
-      <label><input type="radio" name="q9" value="d"> Vacuole</label>
-    </div>
-
-    <div class="question">
-      <h3>10. What happens during exocytosis?</h3>
-      <label><input type="radio" name="q10" value="a"> Cell engulfs substances</label>
-      <label><input type="radio" name="q10" value="b"> Cell bursts</label>
-      <label><input type="radio" name="q10" value="c"> Cell releases substances</label>
-      <label><input type="radio" name="q10" value="d"> Cell stores ATP</label>
-    </div>
-
-    <button class="submit-btn" onclick="checkAnswers()">Submit</button>
-    <div class="result" id="result"></div>
-  </div>
-
-   <!-- Footer -->
-  <footer class="custom-footer">
-    <div class="footer-container">
-      <div class="footer-column">
-        <h3 class="footer-logo">SYNTAX</h3>
-        <p class="footer-description">
-          SYNTAX helps students master biology topics like active transport using engaging content.
-        </p>
-        <p class="footer-contact">📧 info@syntaxbio.com</p>
-      </div>
-
-      <div class="footer-column">
-        <h4 class="footer-heading">LINKS</h4>
-        <ul class="footer-list">
-          <li><a href="INDEX.html">Home</a></li>
-          <li><a href="Lesson.html">Lesson</a></li>
-          <li><a href="Quiz.html">Quiz</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h4 class="footer-heading">MADE BY</h4>
-        <ul class="footer-list">
-          <li><a href="#">ALEXA</a></li>
-          <li><a href="#">VINCENZO</a></li>
-          <li><a href="#">RAY</a></li>
-          <li><a href="#">RAJEEV</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h4 class="footer-heading">NEWSLETTER</h4>
-        <p class="footer-description">Stay updated with the latest learning tools and content.</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Your Email" required>
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 SYNTAX. All rights reserved.</p>
-    </div>
-  </footer>
-
-    <script>
-  function checkAnswers() {
-    const correctAnswers = {
-      q1: "b", q2: "b", q3: "c", q4: "b", q5: "a",
-      q6: "b", q7: "b", q8: "c", q9: "b", q10: "c"
-    };
-
-    let score = 0;
-
-    for (let i = 1; i <= 10; i++) {
-      const qName = `q${i}`;
-      const correct = correctAnswers[qName];
-      const selected = document.querySelector(`input[name="${qName}"]:checked`);
-
-      const allOptions = document.querySelectorAll(`input[name="${qName}"]`);
-      allOptions.forEach(option => {
-        const label = option.parentElement;
-        label.style.color = "#333"; // reset
-        label.style.fontWeight = "normal";
-        label.style.backgroundColor = "transparent";
-      });
-
-      if (selected) {
-        if (selected.value === correct) {
-          score++;
-          selected.parentElement.style.backgroundColor = "#d4f4c5"; // green
-          selected.parentElement.style.color = "#27632a";
-          selected.parentElement.style.fontWeight = "600";
-        } else {
-          selected.parentElement.style.backgroundColor = "#ffd6d6"; // red
-          selected.parentElement.style.color = "#a12c2c";
-          selected.parentElement.style.fontWeight = "600";
-
-          const correctLabel = document.querySelector(`input[name="${qName}"][value="${correct}"]`).parentElement;
-          correctLabel.style.backgroundColor = "#d4f4c5";
-          correctLabel.style.color = "#27632a";
-          correctLabel.style.fontWeight = "600";
-        }
-      } else {
-        const correctLabel = document.querySelector(`input[name="${qName}"][value="${correct}"]`).parentElement;
-        correctLabel.style.backgroundColor = "#d4f4c5";
-        correctLabel.style.color = "#27632a";
-        correctLabel.style.fontWeight = "600";
-      }
-    }
-
-    document.getElementById("result").innerHTML = `<p style="font-size:1.3rem;">You got <strong>${score}</strong> out of 10 correct.</p>`;
+function nextQuestion() {
+  const selected = document.querySelector('input[name="q"]:checked');
+  if (!selected) return alert("Please select an answer before continuing.");
+  const correct = questions[currentQuestion].answer;
+  if (selected.value === correct) score++;
+  currentQuestion++;
+  if (currentQuestion < questions.length) {
+    loadQuestion(currentQuestion);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    showResult();
   }
-</script>
+}
 
+function showResult() {
+  const container = document.getElementById("quiz-question");
+  container.innerHTML = "";
+  document.getElementById("next-btn").style.display = "none";
+  let message = "";
+  if (score === questions.length) message = "🌟 Perfect! You're a Bio Master!";
+  else if (score >= 8) message = "🎉 Great job!";
+  else if (score >= 5) message = "👍 Good effort, keep learning!";
+  else message = "🧐 Try reviewing the lesson again!";
+
+  document.getElementById("result").innerHTML =
+    `<p style="font-size:1.3rem;">You got <strong>${score}</strong> out of ${questions.length} correct.<br>${message}</p>` +
+    `<div class="answer-key">
+      <h4>Correct Answers:</h4>
+      <ul>
+        ${questions.map((q, i) => `<li>${i + 1}. ${q.answer}</li>`).join('')}
+      </ul>
+    </div>`;
+  document.getElementById("return-btn").style.display = "block";
+}
+
+loadQuestion(currentQuestion);
+</script>
 
 </body>
 </html>
