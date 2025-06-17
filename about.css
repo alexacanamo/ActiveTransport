@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600&display=swap');
 
+.cont-wrap {
+  width: 80%;
+  height:100%;
+  margin: 0 auto;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -83,10 +89,12 @@ nav .logo {
 }
 
 .header {
-    padding: 150px 20px 20px 200px;
-    background-color: #ffffff;
-    position: relative;
-    z-index: 0;
+  position: relative;
+  width: 100%;
+  height: 700px;
+  background-color: #fff;
+  border-radius: 0 0 100% 100% / 0 0 290px 290px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
   }
 
   .header hr {
@@ -115,23 +123,36 @@ nav .logo {
     color: #436c1d;
   }
 
+  .bannertxt {
+    width:60%;
+    float:left;
+    margin-top: 100px;
+  }
+
   .tagline {
     font-size: 2rem;
-    width:650px;
   }
 
-  .half-circle {
-    width: 100%;
-    height: 430px;
-    background-color: #fff;
-    border-radius: 0 0 100% 100% / 0 0 290px 290px;
-    margin-top: -160px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  
+
+  .circle {
+    width: 404px;
+    height: 404px;
+    margin-top: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    float:left;
   }
 
-  .circle-section {
+  .circle img {
+    object-fit: cover;
+    transform: scale(1.2);
+  }
+
+  .aboutsection2 {
     background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.4)), url('bg.jpg') no-repeat center center;
-    height:860px;
+    height:780px;
     background-size: cover;
     background-attachment: fixed;
     padding: 10px 20px 300px;
@@ -139,24 +160,7 @@ nav .logo {
     text-align: center;
   }
 
-  .circle {
-    width: 550px;
-    height: 550px;
-    border-radius: 50%;
-    margin: -680px 0 0 1100px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    z-index: 2;
-  }
-
-  .circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scale(1.2);
-  }
-
-  .circle-section h1 {
+  .aboutsection2 h1 {
     max-width: 500px;
     margin: 150px auto 0;
     font-family: 'Poppins', sans-serif;
@@ -167,24 +171,34 @@ nav .logo {
 
   }
 
+  .aboutsection2 .cont-wrap {
+    width:100%;
+  }
+
   .highlight {
     color: #7fc241;
     font-weight: bold;
   }
 
   .mission {
-    margin: 0 0 0 100px;
-    width:500px;
+    width:33%;
+    float:left;
+    padding:0 20px 0 20px;
+    margin-top:-200px;
   }
 
   .vision {
-    margin: -720px 0 0 680px;
-    width:500px;
+    width:33%;
+    float:left;
+    padding:0 20px 0 20px;
+    margin-top:-200px;
   }
 
   .values {
-    margin: -733px 0 0 1260px;
-    width:500px;
+    width:33%;
+    float:left;
+    padding:0 20px 0 20px;
+    margin-top:-200px;
   }
 
   .circle-content {

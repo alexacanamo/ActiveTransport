@@ -166,3 +166,9 @@ nav .logo {
       padding-top: 20px;
       color: #777;
     }
+   .question label {
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
