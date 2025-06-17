@@ -171,19 +171,15 @@
       z-index: 2;
     }
 
-    .what-is img {
-      flex: 1;
+    .what-is-flex img {
+      margin: 0 0 24px 50px;
+      display: block;
       max-width: 420px;
+      width: 100%;
       border: 6px solid #73da14;
       border-radius: 24px;
       box-shadow: 0 6px 32px rgba(67,108,29,0.15);
       background: #fff;
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
     }
 
     /* Smooth transition between main section and what-is section */
@@ -204,7 +200,7 @@
     }
 
     .what-is-flex img {
-      margin-left: 0px;
+      margin-left: 10px;
       max-width: 500px;
       width: 100%;
     }
@@ -417,9 +413,9 @@
 
   <!-- what is  -->
   <section class="what-is">
-    <div class="what-is-flex" style="display: flex; align-items: fleIx-start; gap: 32px; width: 100%;">
-      <img src="active-transport-gif_orig.gif" alt="Active Transport Diagram" />
-      <div style="flex: 1;">
+    <div class="what-is-flex" style="display: block; width: 100%; text-align: center;">
+      <img src="active-transport-gif_orig.gif" alt="Active Transport Diagram" style="margin-left: 40px;" />
+      <div style="margin-top: 24px;">
         <h2> What is <span class="highlight">Active Transport</span>? </h2>
       </div>
     </div>
