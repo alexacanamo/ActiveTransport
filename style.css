@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+.cont-wrap {
+  width: 80%;
+  height:100%;
+  margin: 0 auto;
+}
+
 body, html {
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
@@ -27,6 +33,25 @@ body::before {
   background-attachment: fixed;
   z-index: -1;
 }
+
+.mute-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .mute-button:hover {
+      background-color: #555;
+    }
 
 nav {
   position: fixed;
@@ -118,6 +143,33 @@ nav .logo a{
 nav li:hover .dropdown-cont {
   opacity: 1;
   visibility:visible;
+}
+
+.ReferenceSection {
+  background-color: #fff;
+  padding-top: 60px;
+  height: 800px;
+}
+
+.reference-content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.reference-content .types-title {
+  text-align: center;
+}
+
+.reflink {
+  display: block;
+      margin-bottom: 12px;
+      padding-left: 0.5in;
+      line-height: 1.6;
+      white-space: normal;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      
 }
 
     footer.custom-footer {
