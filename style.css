@@ -48,7 +48,14 @@ nav {
   border: 1px solid rgb(61, 61, 61);
 }
 
-nav a {
+nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+nav li a {
   text-decoration: none;
   color: #000000;
   font-size: 1.5rem;
@@ -60,8 +67,8 @@ nav a {
 
 .nav-links a {
   margin-left: 20px;
-  text-decoration: none;
-  color: #333;
+  text-decoration: none; 
+  backdrop-filter: blur(100px);
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -71,7 +78,7 @@ nav a {
 }
 
 
-nav .logo {
+nav .logo a{
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 2em;
@@ -80,6 +87,37 @@ nav .logo {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+}
+
+.dropdown-cont {
+  opacity: 0;
+  visibility: hidden;
+  position:absolute;
+  background: rgba(255, 255, 255, 0.7);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  width:200px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.dropdown-cont a {
+  padding: 12px 16px;
+  margin:0 auto;
+  width:100%;
+  display: block;
+  text-align: center;
+  font-size: 20px;
+    }
+
+.dropdown-cont a:hover {
+  background-color: #dfdfdf;
+}
+
+nav li:hover .dropdown-cont {
+  opacity: 1;
+  visibility:visible;
 }
 
     footer.custom-footer {
